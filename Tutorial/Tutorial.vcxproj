@@ -147,6 +147,7 @@
     <ClCompile Include="src\03_mask_operations.cpp" />
     <ClCompile Include="src\01_display_image.cpp" />
     <ClCompile Include="src\04_mat_operations.cpp" />
+    <ClCompile Include="src\05_blending.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>

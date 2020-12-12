@@ -22,5 +22,7 @@ int main()
 
 	//mask_operations();
 
-	mat_operations();
+	//mat_operations();
+
+	blending();
 }
