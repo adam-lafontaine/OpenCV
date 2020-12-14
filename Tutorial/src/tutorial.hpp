@@ -9,3 +9,5 @@ void mask_operations();
 void mat_operations();
 
 void blending();
+
+void linear_transform();

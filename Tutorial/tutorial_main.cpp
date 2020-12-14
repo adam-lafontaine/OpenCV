@@ -24,5 +24,7 @@ int main()
 
 	//mat_operations();
 
-	blending();
+	//blending();
+
+	linear_transform();
 }

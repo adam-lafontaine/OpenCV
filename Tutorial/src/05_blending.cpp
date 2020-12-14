@@ -23,6 +23,7 @@ void blending()
 
     assert(img_1.rows == img_2.rows);
     assert(img_1.cols == img_2.cols);
+    assert(img_1.type() == img_2.type());
 
     double alpha = 0.5;
 

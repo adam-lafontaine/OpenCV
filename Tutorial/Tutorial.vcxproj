@@ -148,11 +148,13 @@
     <ClCompile Include="src\01_display_image.cpp" />
     <ClCompile Include="src\04_mat_operations.cpp" />
     <ClCompile Include="src\05_blending.cpp" />
+    <ClCompile Include="src\06_linear_transform.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\utils\for_each_pixel.hpp" />
     <ClInclude Include="..\utils\reduced_lookup.hpp" />
+    <ClInclude Include="..\utils\transform_pixels.hpp" />
     <ClInclude Include="..\utils\win32_leak_check.h" />
     <ClInclude Include="src\tutorial.hpp" />
   </ItemGroup>
