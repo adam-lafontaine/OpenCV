@@ -11,3 +11,5 @@ void mat_operations();
 void blending();
 
 void linear_transform();
+
+void discrete_fourier_transform();

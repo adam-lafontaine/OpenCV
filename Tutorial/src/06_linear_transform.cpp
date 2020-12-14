@@ -41,5 +41,21 @@ void linear_transform()
     cv::imshow("Original Image", img_1);
     cv::imshow("New Image", dst);
 
+
+    auto const gamma_correction = [](auto shade)
+    {
+        auto const gamma = 0.4;
+        return cv::saturate_cast<uchar>(std::pow(shade / 255.0, gamma) * 255.0);
+    };
+
+    cv::Mat lookup(1, 256, CV_8U);
+    auto ptr = lookup.ptr();
+    for (int i = 0; i < 256; ++i)
+        ptr[i] = gamma_correction(i);
+
+    cv::LUT(img_1, lookup, dst);
+
+    cv::imshow("Gamma", dst);
+
     cv::waitKey();
 }

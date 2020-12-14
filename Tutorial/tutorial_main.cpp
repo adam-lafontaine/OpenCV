@@ -26,5 +26,7 @@ int main()
 
 	//blending();
 
-	linear_transform();
+	//linear_transform();
+
+	discrete_fourier_transform();
 }
