@@ -28,5 +28,7 @@ int main()
 
 	//linear_transform();
 
-	discrete_fourier_transform();
+	//discrete_fourier_transform();
+
+	read_write();
 }

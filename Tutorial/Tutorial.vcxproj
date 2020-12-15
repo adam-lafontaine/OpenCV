@@ -149,7 +149,8 @@
     <ClCompile Include="src\04_mat_operations.cpp" />
     <ClCompile Include="src\05_blending.cpp" />
     <ClCompile Include="src\06_linear_transform.cpp" />
-    <ClCompile Include="src\discrete_fourier_transform.cpp" />
+    <ClCompile Include="src\07_discrete_fourier_transform.cpp" />
+    <ClCompile Include="src\08_read_write.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>
