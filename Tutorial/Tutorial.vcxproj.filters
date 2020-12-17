@@ -16,37 +16,40 @@
     <Filter Include="Header Files\utils">
       <UniqueIdentifier>{abcd9e6b-df3b-4487-b27b-9f49fe7a32cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\core">
+      <UniqueIdentifier>{9e97ef40-ae4c-4de3-a7e1-cfbaf9af0718}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tutorial_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\01_display_image.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\09_parallel_for.cpp">
+      <Filter>Resource Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\02_lookup_table.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\01_display_image.cpp">
+      <Filter>Resource Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\03_mask_operations.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\02_lookup_table.cpp">
+      <Filter>Resource Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\04_mat_operations.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\03_mask_operations.cpp">
+      <Filter>Resource Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\05_blending.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\04_mat_operations.cpp">
+      <Filter>Resource Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\06_linear_transform.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\05_blending.cpp">
+      <Filter>Resource Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\07_discrete_fourier_transform.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\06_linear_transform.cpp">
+      <Filter>Resource Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\08_read_write.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\07_discrete_fourier_transform.cpp">
+      <Filter>Resource Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="src\09_parallel_for.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\core\08_read_write.cpp">
+      <Filter>Resource Files\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

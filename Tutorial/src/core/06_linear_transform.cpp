@@ -1,5 +1,5 @@
-#include "tutorial.hpp"
-#include "../../utils/transform_pixels.hpp"
+#include "../tutorial.hpp"
+#include "../../../utils/transform_pixels.hpp"
 
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>

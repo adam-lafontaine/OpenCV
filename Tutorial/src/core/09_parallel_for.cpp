@@ -1,6 +1,6 @@
-#include "./tutorial.hpp"
-#include "../../utils/stopwatch.hpp"
-#include "../../utils/for_each_pixel.hpp"
+#include "../tutorial.hpp"
+#include "../../../utils/stopwatch.hpp"
+#include "../../../utils/for_each_pixel.hpp"
 
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
