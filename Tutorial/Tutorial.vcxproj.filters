@@ -45,6 +45,9 @@
     <ClCompile Include="src\08_read_write.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\09_parallel_for.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\tutorial.hpp">

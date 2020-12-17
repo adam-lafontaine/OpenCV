@@ -30,5 +30,7 @@ int main()
 
 	//discrete_fourier_transform();
 
-	read_write();
+	//read_write();
+
+	parallel_for();
 }

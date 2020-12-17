@@ -113,6 +113,7 @@ void read_data()
     if (!fs.isOpened())
     {
         std::cerr << "Failed to open " << FILE_PATH << '\n';
+        return;
     }
 
     cv::FileNode n = fs["strings"];                         // Read string sequence - Get node

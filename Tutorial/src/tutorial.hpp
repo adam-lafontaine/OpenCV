@@ -15,3 +15,5 @@ void linear_transform();
 void discrete_fourier_transform();
 
 void read_write();
+
+void parallel_for();
