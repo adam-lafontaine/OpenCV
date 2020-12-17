@@ -1,7 +1,7 @@
 #include "./tutorial.hpp"
 #include "../../utils/stopwatch.hpp"
+#include "../../utils/for_each_pixel.hpp"
 
-#include <iostream>
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 
@@ -75,6 +75,50 @@ void parallel(cv::Mat& img, float x1, float y1, float scaleX, float scaleY)
 }
 
 
+void for_each_pixel_seq(cv::Mat& img, float x1, float y1, float scaleX, float scaleY)
+{
+    auto const func = [&](auto x, auto y)
+    {
+        float x0 = x / scaleX + x1;
+        float y0 = y / scaleY + y1;
+
+        //std::cout << "x: " << x << " y: " << y << "\n";
+
+        img.ptr<uchar>(y)[x] = do_mandelbrot(img, x0, y0);
+    };
+
+    utils::for_each_pixel_seq(img, func);
+}
+
+
+void for_each_pixel_par(cv::Mat& img, float x1, float y1, float scaleX, float scaleY)
+{
+    auto const func = [&](auto x, auto y)
+    {
+        float x0 = x / scaleX + x1;
+        float y0 = y / scaleY + y1;
+
+        img.ptr<uchar>(y)[x] = do_mandelbrot(img, x0, y0);
+    };
+
+    utils::for_each_pixel_par(img, func);
+}
+
+
+void for_each_pixel_par_stl(cv::Mat& img, float x1, float y1, float scaleX, float scaleY)
+{
+    auto const func = [&](auto x, auto y)
+    {
+        float x0 = x / scaleX + x1;
+        float y0 = y / scaleY + y1;
+
+        img.ptr<uchar>(y)[x] = do_mandelbrot(img, x0, y0);
+    };
+
+    utils::for_each_pixel_par_stl(img, func);
+}
+
+
 void parallel_for()
 {
     cv::Mat mandelbrotImg(4800, 5400, CV_8U);
@@ -88,9 +132,21 @@ void parallel_for()
     sw.start();
     sequential(mandelbrotImg, x1, y1, scaleX, scaleY);
 
-    std::cout << "Sequential: " << sw.get_time_sec() << " s\n"; // 12 sec
+    std::cout << "Sequential: " << sw.get_time_sec() << " s\n"; // 12.x sec
 
     sw.start();
     parallel(mandelbrotImg, x1, y1, scaleX, scaleY);
-    std::cout << "Parallel: " << sw.get_time_sec() << " s\n"; // 1.9 sec
+    std::cout << "Parallel: " << sw.get_time_sec() << " s\n"; // 1.9x sec
+
+    sw.start();
+    for_each_pixel_seq(mandelbrotImg, x1, y1, scaleX, scaleY);
+    std::cout << "for_each_pixel_seq: " << sw.get_time_sec() << " s\n"; // 12.x sec
+
+    sw.start();
+    for_each_pixel_par(mandelbrotImg, x1, y1, scaleX, scaleY);
+    std::cout << "for_each_pixel_par: " << sw.get_time_sec() << " s\n"; // 1.9x sec
+
+    sw.start();
+    for_each_pixel_par_stl(mandelbrotImg, x1, y1, scaleX, scaleY);
+    std::cout << "for_each_pixel_par: " << sw.get_time_sec() << " s\n"; // 1.7x sec
 }
