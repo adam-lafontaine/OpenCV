@@ -6,6 +6,8 @@
 #include <execution>
 #include <algorithm>
 #include <vector>
+#include <array>
+#include <limits>
 
 namespace utils
 {
@@ -124,6 +126,63 @@ namespace utils
 	}
 
 
+	inline void for_each_pixel_par_stl(cv::Mat const& img, std::function<void(cv::Vec3b const&)> const& func)
+	{
+		size_t id_size = static_cast<size_t>(img.rows) * static_cast<size_t>(img.cols);
+
+		std::vector<int> ids(id_size);
+		std::iota(ids.begin(), ids.end(), 0);
+
+		auto const get_y = [&](int id) { return id / img.cols; };
+		auto const get_x = [&](int id) { return id % img.cols; };
+
+		auto const id_func = [&](int id)
+		{
+			auto p = img.ptr<uchar>(get_y(id))[get_x(id)];
+			func(p);
+		};
+
+		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
+	}
+
+	//constexpr size_t MAX_ID_SIZE = 5000 * 5000;
+
+	//constexpr std::array<size_t, MAX_ID_SIZE> make_ids()
+	//{
+	//	std::array<size_t, MAX_ID_SIZE> data{ 0 };
+	//	for (size_t i = 0; i < MAX_ID_SIZE; ++i)
+	//	{
+	//		// C++17 constexpr
+	//		data[i] = i;
+	//	}
+
+	//	return data;
+	//}
+
+	//constexpr auto IDS = make_ids();
+
+
+	inline void for_each_pixel_par_stl(cv::Mat const& img, std::function<void(uchar)> const& func)
+	{
+		// TODO: C++ 20 constexpr
+		size_t id_size = static_cast<size_t>(img.rows) * static_cast<size_t>(img.cols);
+
+		std::vector<int> ids(id_size);
+		std::iota(ids.begin(), ids.end(), 0);
+
+		auto const get_y = [&](int id) { return id / img.cols; };
+		auto const get_x = [&](int id) { return id % img.cols; };
+
+		auto const id_func = [&](int id)
+		{
+			auto p = img.ptr<uchar>(get_y(id))[get_x(id)];
+			func(p);
+		};
+
+		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
+	}
+
+
 	
 
 
@@ -184,6 +243,44 @@ namespace utils
 
 	inline void LUT_stl(cv::Mat const& src, std::array<uint8_t, 256> table, cv::Mat& dst)
 	{
+		assert(src.rows == dst.rows);
+		assert(src.cols == dst.cols);
+		assert(src.type == CV_8U);
+		assert(src.type() == dst.type());
+
+		// 12 sec
+		/*size_t id_size = static_cast<size_t>(src.rows) * static_cast<size_t>(dst.cols);
+
+		std::vector<int> ids(id_size);
+		std::iota(ids.begin(), ids.end(), 0);
+
+		auto const get_y = [&](int id) { return id / src.cols; };
+		auto const get_x = [&](int id) { return id % src.cols; };
+
+		auto const id_func = [&](int id)
+		{
+			auto const y = get_y(id);
+			auto const x = get_x(id);
+			auto src_ptr = src.ptr<uchar>(y);
+			auto dst_ptr = dst.ptr<uchar>(y);
+
+			dst_ptr[x] = table[src_ptr[x]];
+		};
+
+		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);*/
+
+		// 14 sec
+		/*auto const xy_func = [&](auto x, auto y)
+		{
+			auto src_ptr = src.ptr<uchar>(y);
+			auto dst_ptr = dst.ptr<uchar>(y);
+
+			dst_ptr[x] = table[src_ptr[x]];
+		};
+
+		for_each_pixel_par_stl(src, xy_func);*/
+
+		// 124 ms
 		std::vector<int> rows(src.rows);
 		std::iota(rows.begin(), rows.end(), 0);
 
@@ -200,9 +297,10 @@ namespace utils
 
 		std::for_each(std::execution::par, rows.begin(), rows.end(), row_func);
 
-		/*auto const func = [&](auto p) { return table[p]; };
-		std::transform(std::execution::par, src.begin<uchar>(), src.end<uchar>(), dst.begin<uchar>(), func);*/
-		
+
+
 	}
+
+
 }
 
