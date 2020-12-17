@@ -69,6 +69,9 @@ void parallel(cv::Mat& img, float x1, float y1, float scaleX, float scaleY)
             img.ptr<uchar>(i)[j] = do_mandelbrot(img, x0, y0);
         }
     };
+
+    cv::Range range(0, img.rows * img.cols);
+    cv::parallel_for_(range, func);
 }
 
 
@@ -85,9 +88,9 @@ void parallel_for()
     sw.start();
     sequential(mandelbrotImg, x1, y1, scaleX, scaleY);
 
-    std::cout << "Sequential: " << sw.get_time_milli() << " ms\n"; // 12k ms
+    std::cout << "Sequential: " << sw.get_time_sec() << " s\n"; // 12 sec
 
     sw.start();
     parallel(mandelbrotImg, x1, y1, scaleX, scaleY);
-    std::cout << "Parallel: " << sw.get_time_milli() << " ms\n"; // 0.2 ms
+    std::cout << "Parallel: " << sw.get_time_sec() << " s\n"; // 1.9 sec
 }
