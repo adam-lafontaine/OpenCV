@@ -245,7 +245,7 @@ namespace utils
 	{
 		assert(src.rows == dst.rows);
 		assert(src.cols == dst.cols);
-		assert(src.type == CV_8U);
+		assert(src.type() == CV_8U);
 		assert(src.type() == dst.type());
 
 		// 12 sec

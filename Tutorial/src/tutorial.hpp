@@ -17,3 +17,5 @@ void discrete_fourier_transform();
 void read_write();
 
 void parallel_for();
+
+void basic_draw();
