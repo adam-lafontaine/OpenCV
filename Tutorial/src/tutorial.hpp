@@ -21,3 +21,5 @@ void parallel_for();
 void basic_draw();
 
 void random_draw();
+
+void smoothing();

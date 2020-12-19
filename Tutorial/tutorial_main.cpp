@@ -36,7 +36,9 @@ int main()
 
 	//basic_draw();
 
-	random_draw();
+	//random_draw();
+
+	smoothing();
 
 
 }
