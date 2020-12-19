@@ -128,13 +128,14 @@ namespace utils
 
 	inline void for_each_pixel_par_stl(cv::Mat const& img, std::function<void(cv::Vec3b const&)> const& func)
 	{
-		size_t id_size = static_cast<size_t>(img.rows) * static_cast<size_t>(img.cols);
+		auto const width = static_cast<size_t>(img.cols);
+		size_t id_size = static_cast<size_t>(img.rows) * width;
 
 		std::vector<int> ids(id_size);
 		std::iota(ids.begin(), ids.end(), 0);
 
-		auto const get_y = [&](int id) { return id / img.cols; };
-		auto const get_x = [&](int id) { return id % img.cols; };
+		auto const get_y = [&](int id) { return id / width; };
+		auto const get_x = [&](int id) { return id % width; };
 
 		auto const id_func = [&](int id)
 		{
@@ -165,13 +166,14 @@ namespace utils
 	inline void for_each_pixel_par_stl(cv::Mat const& img, std::function<void(uchar)> const& func)
 	{
 		// TODO: C++ 20 constexpr
-		size_t id_size = static_cast<size_t>(img.rows) * static_cast<size_t>(img.cols);
+		auto const width = static_cast<size_t>(img.cols);
+		size_t id_size = static_cast<size_t>(img.rows) * width;
 
 		std::vector<int> ids(id_size);
 		std::iota(ids.begin(), ids.end(), 0);
 
-		auto const get_y = [&](int id) { return id / img.cols; };
-		auto const get_x = [&](int id) { return id % img.cols; };
+		auto const get_y = [&](int id) { return id / width; };
+		auto const get_x = [&](int id) { return id % width; };
 
 		auto const id_func = [&](int id)
 		{

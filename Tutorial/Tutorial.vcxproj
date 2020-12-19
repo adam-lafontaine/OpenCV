@@ -154,6 +154,7 @@
     <ClCompile Include="src\core\09_parallel_for.cpp" />
     <ClCompile Include="src\imgproc\01_basic_draw.cpp" />
     <ClCompile Include="src\imgproc\02_random_draw.cpp" />
+    <ClCompile Include="src\imgproc\03_smoothing.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -36,19 +36,26 @@ namespace utils
 		assert(src.cols == dst.cols);
 		assert(src.type() == dst.type());
 
-		std::vector<int> rows(src.rows);
-		std::iota(rows.begin(), rows.end(), 0);
+		auto const width = static_cast<size_t>(src.cols);
+		size_t id_size = static_cast<size_t>(src.rows) * width;
 
-		auto const row_func = [&](int y)
+		// C++20 ranges
+		std::vector<int> ids(id_size);
+		std::iota(ids.begin(), ids.end(), 0);
+
+		auto const get_y = [&](int id) { return id / width; };
+		auto const get_x = [&](int id) { return id % width; };
+
+		auto const id_func = [&](int id)
 		{
+			auto const y = get_y(id);
+			auto const x = get_x(id);
 			auto src_ptr = src.ptr<pixel_t>(y);
 			auto dst_ptr = dst.ptr<pixel_t>(y);
-			for (auto x = 0; x < src.cols; ++x)
-			{
-				func(src_ptr[x], dst_ptr[x]);
-			}
+
+			func(src_ptr[x], dst_ptr[x]);
 		};
 
-		std::for_each(std::execution::par, rows.begin(), rows.end(), row_func);
+		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
 	}
 }
