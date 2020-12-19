@@ -42,7 +42,9 @@ int main()
 
 	//erode_dilate();
 
-	morphology();
+	//morphology();
+
+	hit_or_miss();
 
 
 }

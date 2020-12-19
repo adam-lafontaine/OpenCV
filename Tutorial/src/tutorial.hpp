@@ -27,3 +27,5 @@ void smoothing();
 void erode_dilate();
 
 void morphology();
+
+void hit_or_miss();
