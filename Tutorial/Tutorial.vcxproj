@@ -156,6 +156,7 @@
     <ClCompile Include="src\imgproc\02_random_draw.cpp" />
     <ClCompile Include="src\imgproc\03_smoothing.cpp" />
     <ClCompile Include="src\imgproc\04_erode_dilate.cpp" />
+    <ClCompile Include="src\imgproc\05_morphology.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>

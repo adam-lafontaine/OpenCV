@@ -25,3 +25,5 @@ void random_draw();
 void smoothing();
 
 void erode_dilate();
+
+void morphology();

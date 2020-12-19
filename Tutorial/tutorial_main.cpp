@@ -40,7 +40,9 @@ int main()
 
 	//smoothing();
 
-	erode_dilate();
+	//erode_dilate();
+
+	morphology();
 
 
 }
