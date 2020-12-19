@@ -14,8 +14,8 @@ void MyLine(cv::Mat img, cv::Point start, cv::Point end);
 
 void basic_draw()
 {
-    char atom_window[] = "Drawing 1: Atom";
-    char rook_window[] = "Drawing 2: Rook";
+    auto atom_window = "Drawing 1: Atom";
+    auto rook_window = "Drawing 2: Rook";
     cv::Mat atom_image = cv::Mat::zeros(w, w, CV_8UC3);
     cv::Mat rook_image = cv::Mat::zeros(w, w, CV_8UC3);
 

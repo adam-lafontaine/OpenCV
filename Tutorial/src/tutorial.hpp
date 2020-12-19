@@ -19,3 +19,5 @@ void read_write();
 void parallel_for();
 
 void basic_draw();
+
+void random_draw();

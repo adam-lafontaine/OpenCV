@@ -34,7 +34,9 @@ int main()
 
 	//parallel_for();
 
-	basic_draw();
+	//basic_draw();
+
+	random_draw();
 
 
 }
