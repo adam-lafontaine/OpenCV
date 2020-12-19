@@ -23,3 +23,5 @@ void basic_draw();
 void random_draw();
 
 void smoothing();
+
+void erode_dilate();

@@ -38,7 +38,9 @@ int main()
 
 	//random_draw();
 
-	smoothing();
+	//smoothing();
+
+	erode_dilate();
 
 
 }
