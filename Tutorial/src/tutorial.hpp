@@ -29,3 +29,5 @@ void erode_dilate();
 void morphology();
 
 void hit_or_miss();
+
+void extract_h_v_lines();

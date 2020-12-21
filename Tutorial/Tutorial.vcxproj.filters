@@ -69,7 +69,10 @@
     <ClCompile Include="src\imgproc\05_morphology.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
-    <ClCompile Include="src\imgproc\hit_or_miss.cpp">
+    <ClCompile Include="src\imgproc\06_hit_or_miss.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\07_extract_h_v_lines.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
   </ItemGroup>

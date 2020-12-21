@@ -44,7 +44,9 @@ int main()
 
 	//morphology();
 
-	hit_or_miss();
+	//hit_or_miss();
+
+	extract_h_v_lines();
 
 
 }
