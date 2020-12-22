@@ -127,25 +127,7 @@ namespace utils
 		};
 
 		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
-	}
-
-
-	inline void for_each_pixel_par_itr(cv::Mat const& img, std::function<void(size_t x, size_t y)> const& func)
-	{
-		size_t id_size = static_cast<size_t>(img.rows) * static_cast<size_t>(img.cols);
-
-		auto const get_y = [&](int id) { return id / img.cols; };
-		auto const get_x = [&](int id) { return id % img.cols; };
-
-		auto const id_func = [&](int id)
-		{
-			func(get_x(id), get_y(id));
-		};
-
-		IndexRange ids(id_size - 1);
-
-		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
-	}
+	}	
 
 
 	inline void for_each_pixel_par_stl(cv::Mat const& img, std::function<void(cv::Vec3b const&)> const& func)
@@ -167,22 +149,6 @@ namespace utils
 
 		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
 	}
-
-	//constexpr size_t MAX_ID_SIZE = 5000 * 5000;
-
-	//constexpr std::array<size_t, MAX_ID_SIZE> make_ids()
-	//{
-	//	std::array<size_t, MAX_ID_SIZE> data{ 0 };
-	//	for (size_t i = 0; i < MAX_ID_SIZE; ++i)
-	//	{
-	//		// C++17 constexpr
-	//		data[i] = i;
-	//	}
-
-	//	return data;
-	//}
-
-	//constexpr auto IDS = make_ids();
 
 
 	inline void for_each_pixel_par_stl(cv::Mat const& img, std::function<void(uchar)> const& func)
@@ -207,7 +173,63 @@ namespace utils
 	}
 
 
-	
+	inline void for_each_pixel_par_itr(cv::Mat const& img, std::function<void(size_t x, size_t y)> const& func)
+	{
+		auto const width = static_cast<size_t>(img.cols);
+		size_t id_size = static_cast<size_t>(img.rows) * width;
+
+		auto const get_y = [&](int id) { return id / width; };
+		auto const get_x = [&](int id) { return id % width; };
+
+		auto const id_func = [&](int id)
+		{
+			func(get_x(id), get_y(id));
+		};
+
+		IndexRange ids(id_size - 1);
+
+		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
+	}
+
+
+	inline void for_each_pixel_par_itr(cv::Mat const& img, std::function<void(cv::Vec3b const&)> const& func)
+	{
+		auto const width = static_cast<size_t>(img.cols);
+		size_t id_size = static_cast<size_t>(img.rows) * width;
+
+		auto const get_y = [&](int id) { return id / width; };
+		auto const get_x = [&](int id) { return id % width; };
+
+		auto const id_func = [&](int id)
+		{
+			auto p = img.ptr<uchar>(get_y(id))[get_x(id)];
+			func(p);
+		};
+
+		IndexRange ids(id_size - 1);
+
+		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
+	}
+
+
+	inline void for_each_pixel_par_itr(cv::Mat const& img, std::function<void(uchar)> const& func)
+	{
+		auto const width = static_cast<size_t>(img.cols);
+		size_t id_size = static_cast<size_t>(img.rows) * width;
+
+		auto const get_y = [&](int id) { return id / width; };
+		auto const get_x = [&](int id) { return id % width; };
+
+		auto const id_func = [&](int id)
+		{
+			auto p = img.ptr<uchar>(get_y(id))[get_x(id)];
+			func(p);
+		};
+
+		IndexRange ids(id_size - 1);
+
+		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
+	}
 
 
 
@@ -304,14 +326,15 @@ namespace utils
 
 		for_each_pixel_par_stl(src, xy_func);*/
 
-		// 124 ms
-		std::vector<int> rows(src.rows);
-		std::iota(rows.begin(), rows.end(), 0);
-
 		auto const row_func = [&](int y)
 		{
 			auto src_ptr = src.ptr<uchar>(y);
 			auto dst_ptr = dst.ptr<uchar>(y);
+
+			/*auto const x_func = [&](int x) { dst_ptr[x] = table[src_ptr[x]]; };
+			IndexRange x_range(src.cols - 1);
+			std::for_each(std::execution::par, x_range.begin(), x_range.end(), x_func);*/
+
 			for (auto x = 0; x < src.cols; ++x)
 			{
 				//dst.at<uchar>(y, x) = table[dst.at<uchar>(y, x)];
@@ -319,7 +342,17 @@ namespace utils
 			}
 		};
 
+		// 126 ms
+		//std::vector<int> rows(src.rows);
+		//std::iota(rows.begin(), rows.end(), 0);
+
+
+		// 126 ms
+		IndexRange rows(src.rows - 1);
+
+
 		std::for_each(std::execution::par, rows.begin(), rows.end(), row_func);
+
 
 
 
@@ -343,6 +376,17 @@ namespace utils
 
 		for_each_pixel_par_itr(src, xy_func);
 	}
+
+
+	/*inline void LUT_cv_itr(cv::Mat const& src, std::array<uint8_t, 256> table, cv::Mat& dst)
+	{
+		assert(src.rows == dst.rows);
+		assert(src.cols == dst.cols);
+		assert(src.type() == CV_8U);
+		assert(src.type() == dst.type());
+
+		auto const pixel_func = [&]() {};
+	}*/
 
 
 }

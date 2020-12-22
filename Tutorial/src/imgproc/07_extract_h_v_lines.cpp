@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-void show_wait_destroy(const char* winname, cv::Mat img);
+static void show_wait_destroy(const char* winname, cv::Mat img);
 
 constexpr auto IMAGE_PATH = "D:/repos/OpenCV/Tutorial/in_files/music_notes.png";
 
@@ -107,7 +107,8 @@ void extract_h_v_lines()
 }
 
 
-void show_wait_destroy(const char* winname, cv::Mat img) {
+static void show_wait_destroy(const char* winname, cv::Mat img)
+{
     imshow(winname, img);
     cv::moveWindow(winname, 500, 0);
     cv::waitKey(0);

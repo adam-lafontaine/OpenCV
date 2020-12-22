@@ -22,6 +22,7 @@ namespace utils
 			explicit iterator() : m_val(0) {}
 
 			explicit iterator(value_type val) : m_val(val) {}
+			
 			iterator& operator++() { ++m_val; return *this; }
 			iterator operator++(int) { iterator retval = *this; ++(*this); return retval; }
 			bool operator==(iterator other) const { return m_val == other.m_val; }
@@ -34,7 +35,10 @@ namespace utils
 
 		IndexRange(iterator::value_type max) { m_max = max < 1 ? 1 : max; }
 
+		IndexRange(int max) { m_max = max < 1 ? 1 : static_cast<iterator::value_type>(max); }
+
 		iterator begin() { return iterator(0); }
 		iterator end() { return iterator(m_max + 1); }
 	};
+
 }
