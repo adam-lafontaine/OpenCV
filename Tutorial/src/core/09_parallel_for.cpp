@@ -118,6 +118,19 @@ void for_each_pixel_par_stl(cv::Mat& img, float x1, float y1, float scaleX, floa
     utils::for_each_pixel_par_stl(img, func);
 }
 
+void for_each_pixel_par_itr(cv::Mat& img, float x1, float y1, float scaleX, float scaleY)
+{
+    auto const func = [&](auto x, auto y)
+    {
+        float x0 = x / scaleX + x1;
+        float y0 = y / scaleY + y1;
+
+        img.ptr<uchar>(y)[x] = do_mandelbrot(img, x0, y0);
+    };
+
+    utils::for_each_pixel_par_itr(img, func);
+}
+
 
 void parallel_for()
 {
@@ -148,5 +161,9 @@ void parallel_for()
 
     sw.start();
     for_each_pixel_par_stl(mandelbrotImg, x1, y1, scaleX, scaleY);
-    std::cout << "for_each_pixel_par: " << sw.get_time_sec() << " s\n"; // 1.7x sec
+    std::cout << "for_each_pixel_par_stl: " << sw.get_time_sec() << " s\n"; // 1.77x sec
+
+    sw.start();
+    for_each_pixel_par_itr(mandelbrotImg, x1, y1, scaleX, scaleY);
+    std::cout << "for_each_pixel_par_itr: " << sw.get_time_sec() << " s\n"; // 1.75x sec
 }

@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\utils\for_each_pixel.hpp" />
+    <ClInclude Include="..\utils\index_range.hpp" />
     <ClInclude Include="..\utils\reduced_lookup.hpp" />
     <ClInclude Include="..\utils\transform_pixels.hpp" />
     <ClInclude Include="..\utils\win32_leak_check.h" />

@@ -57,6 +57,18 @@ void lookup_table()
     time = sw.get_time_milli();
     std::cout << "LUT_stl time = " << time << " ms\n";
 
+    sw.start();
+
+    for (auto i = 0; i < n_times; ++i)
+    {
+        utils::LUT_itr(src, table, dst_stl); // 125 ms
+    }
+
+    time = sw.get_time_milli();
+    std::cout << "LUT_itr time = " << time << " ms\n";
+
+
+
     /*cv::namedWindow("Input", cv::WINDOW_AUTOSIZE);
     cv::namedWindow("LUT", cv::WINDOW_AUTOSIZE);
     cv::namedWindow("STL", cv::WINDOW_AUTOSIZE);

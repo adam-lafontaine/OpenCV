@@ -92,5 +92,8 @@
     <ClInclude Include="..\utils\transform_pixels.hpp">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\utils\index_range.hpp">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -18,7 +18,7 @@ int main()
 
 	//display_image();
 
-	//lookup_table();
+	lookup_table();
 
 	//mask_operations();
 
@@ -46,7 +46,7 @@ int main()
 
 	//hit_or_miss();
 
-	extract_h_v_lines();
+	//extract_h_v_lines();
 
 
 }

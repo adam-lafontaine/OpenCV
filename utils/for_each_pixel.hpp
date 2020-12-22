@@ -1,4 +1,7 @@
 #pragma once
+
+#include "index_range.hpp"
+
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 
@@ -11,6 +14,7 @@
 
 namespace utils
 {
+
 	inline void for_each_pixel_seq(cv::Mat const& img, std::function<void(size_t x, size_t y)> const& func)
 	{
 		for (auto y = 0; y < img.rows; ++y)
@@ -121,6 +125,24 @@ namespace utils
 		{
 			func(get_x(id), get_y(id));
 		};
+
+		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
+	}
+
+
+	inline void for_each_pixel_par_itr(cv::Mat const& img, std::function<void(size_t x, size_t y)> const& func)
+	{
+		size_t id_size = static_cast<size_t>(img.rows) * static_cast<size_t>(img.cols);
+
+		auto const get_y = [&](int id) { return id / img.cols; };
+		auto const get_x = [&](int id) { return id % img.cols; };
+
+		auto const id_func = [&](int id)
+		{
+			func(get_x(id), get_y(id));
+		};
+
+		IndexRange ids(id_size - 1);
 
 		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
 	}
@@ -301,6 +323,25 @@ namespace utils
 
 
 
+	}
+
+
+	inline void LUT_itr(cv::Mat const& src, std::array<uint8_t, 256> table, cv::Mat& dst)
+	{
+		assert(src.rows == dst.rows);
+		assert(src.cols == dst.cols);
+		assert(src.type() == CV_8U);
+		assert(src.type() == dst.type());
+
+		auto const xy_func = [&](auto x, auto y)
+		{
+			auto src_ptr = src.ptr<uchar>(y);
+			auto dst_ptr = dst.ptr<uchar>(y);
+
+			dst_ptr[x] = table[src_ptr[x]];
+		};
+
+		for_each_pixel_par_itr(src, xy_func);
 	}
 
 
