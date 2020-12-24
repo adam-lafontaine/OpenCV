@@ -186,7 +186,7 @@ namespace utils
 			func(get_x(id), get_y(id));
 		};
 
-		IndexRange ids(id_size - 1);
+		IndexRange ids(id_size);
 
 		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
 	}
@@ -206,7 +206,7 @@ namespace utils
 			func(p);
 		};
 
-		IndexRange ids(id_size - 1);
+		IndexRange ids(id_size);
 
 		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
 	}
@@ -226,7 +226,7 @@ namespace utils
 			func(p);
 		};
 
-		IndexRange ids(id_size - 1);
+		IndexRange ids(id_size);
 
 		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);
 	}

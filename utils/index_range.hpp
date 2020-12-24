@@ -37,9 +37,9 @@ namespace utils
 
 	public:
 
-		IndexRange(iterator::value_type max) { m_max = max < 1 ? 1 : max; }
+		IndexRange(iterator::value_type size) { m_max = size < 1 ? 0 : size - 1; }
 
-		IndexRange(int max) { m_max = max < 1 ? 1 : static_cast<iterator::value_type>(max); }
+		IndexRange(int size) { m_max = size < 1 ? 0 : static_cast<iterator::value_type>(size - 1); }
 
 		iterator begin() { return iterator(0); }
 		iterator end() { return iterator(m_max + 1); }
