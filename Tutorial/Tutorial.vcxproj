@@ -159,6 +159,7 @@
     <ClCompile Include="src\imgproc\05_morphology.cpp" />
     <ClCompile Include="src\imgproc\06_hit_or_miss.cpp" />
     <ClCompile Include="src\imgproc\07_extract_h_v_lines.cpp" />
+    <ClCompile Include="src\imgproc\08_zoom_in_out.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>

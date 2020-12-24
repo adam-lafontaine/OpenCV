@@ -32,7 +32,7 @@ int main()
 
 	//read_write();
 
-	parallel_for();
+	//parallel_for();
 
 	//basic_draw();
 
@@ -48,5 +48,5 @@ int main()
 
 	//extract_h_v_lines();
 
-
+	zoom_in_out();
 }

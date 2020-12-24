@@ -75,6 +75,9 @@
     <ClCompile Include="src\imgproc\07_extract_h_v_lines.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
+    <ClCompile Include="src\imgproc\08_zoom_in_out.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\tutorial.hpp">
