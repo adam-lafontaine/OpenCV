@@ -33,3 +33,5 @@ void hit_or_miss();
 void extract_h_v_lines();
 
 void zoom_in_out();
+
+void threashold();

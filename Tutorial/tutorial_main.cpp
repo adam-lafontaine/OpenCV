@@ -48,5 +48,7 @@ int main()
 
 	//extract_h_v_lines();
 
-	zoom_in_out();
+	//zoom_in_out();
+
+	threashold();
 }
