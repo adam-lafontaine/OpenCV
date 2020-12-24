@@ -81,6 +81,9 @@
     <ClCompile Include="src\imgproc\09_threashold.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
+    <ClCompile Include="src\imgproc\threshold_inrange.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\tutorial.hpp">

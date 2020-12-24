@@ -50,5 +50,7 @@ int main()
 
 	//zoom_in_out();
 
-	threashold();
+	//threashold();
+
+	threshold_inrange();
 }

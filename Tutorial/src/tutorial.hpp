@@ -35,3 +35,5 @@ void extract_h_v_lines();
 void zoom_in_out();
 
 void threashold();
+
+void threshold_inrange();
