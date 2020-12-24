@@ -134,6 +134,20 @@ void for_each_pixel_par_itr(cv::Mat& img, float x1, float y1, float scaleX, floa
 }
 
 
+void for_each_pixel_par_itr2d(cv::Mat& img, float x1, float y1, float scaleX, float scaleY)
+{
+    auto const func = [&](auto x, auto y)
+    {
+        float x0 = x / scaleX + x1;
+        float y0 = y / scaleY + y1;
+
+        img.ptr<uchar>(y)[x] = do_mandelbrot(img, x0, y0);
+    };
+
+    utils::for_each_pixel_par_itr2d(img, func);
+}
+
+
 static void show_wait_destroy(const char* winname, cv::Mat img)
 {
     imshow(winname, img);
@@ -154,11 +168,14 @@ void parallel_for()
     Stopwatch sw;
 
     std::string label = "Sequential";
-    sw.start();
-    sequential(mandelbrotImg, x1, y1, scaleX, scaleY);
-    std::cout << label << ": " << sw.get_time_sec() << " s\n"; // 12.x sec
 
-    show_wait_destroy(label.c_str(), mandelbrotImg);
+    
+
+    //sw.start();
+    //sequential(mandelbrotImg, x1, y1, scaleX, scaleY);
+    //std::cout << label << ": " << sw.get_time_sec() << " s\n"; // 12.x sec
+
+    //show_wait_destroy(label.c_str(), mandelbrotImg);
 
     label = "Parallel";
     sw.start();
@@ -167,12 +184,12 @@ void parallel_for()
 
     show_wait_destroy(label.c_str(), mandelbrotImg);
 
-    label = "for_each_pixel_seq";
-    sw.start();
-    for_each_pixel_seq(mandelbrotImg, x1, y1, scaleX, scaleY);
-    std::cout << label << ": " << sw.get_time_sec() << " s\n"; // 12.x sec
+    //label = "for_each_pixel_seq";
+    //sw.start();
+    //for_each_pixel_seq(mandelbrotImg, x1, y1, scaleX, scaleY);
+    //std::cout << label << ": " << sw.get_time_sec() << " s\n"; // 12.x sec
 
-    show_wait_destroy(label.c_str(), mandelbrotImg);
+    //show_wait_destroy(label.c_str(), mandelbrotImg);
 
     label = "for_each_pixel_par";
     sw.start();
@@ -191,6 +208,15 @@ void parallel_for()
     label = "for_each_pixel_par_itr";
     sw.start();
     for_each_pixel_par_itr(mandelbrotImg, x1, y1, scaleX, scaleY);
+    std::cout << label << ": " << sw.get_time_sec() << " s\n"; // 1.75x sec
+
+    show_wait_destroy(label.c_str(), mandelbrotImg);
+
+    
+
+    label = "for_each_pixel_par_itr2d";
+    sw.start();
+    for_each_pixel_par_itr2d(mandelbrotImg, x1, y1, scaleX, scaleY);
     std::cout << label << ": " << sw.get_time_sec() << " s\n"; // 1.75x sec
 
     show_wait_destroy(label.c_str(), mandelbrotImg);

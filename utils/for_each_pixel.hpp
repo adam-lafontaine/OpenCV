@@ -232,6 +232,18 @@ namespace utils
 	}
 
 
+	inline void for_each_pixel_par_itr2d(cv::Mat const& img, std::function<void(size_t x, size_t y)> const& func)
+	{
+		auto const width = static_cast<size_t>(img.cols);
+		auto const height = static_cast<size_t>(img.rows);
+		
+		auto const point_func = [&](auto const& pt) { func(pt.x, pt.y); };
+
+		PointRange2D points(width, height);
+		std::for_each(std::execution::par, points.begin(), points.end(), point_func);
+	}
+
+
 
 
 

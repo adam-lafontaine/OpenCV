@@ -18,7 +18,7 @@ int main()
 
 	//display_image();
 
-	lookup_table();
+	//lookup_table();
 
 	//mask_operations();
 
@@ -32,7 +32,7 @@ int main()
 
 	//read_write();
 
-	//parallel_for();
+	parallel_for();
 
 	//basic_draw();
 
