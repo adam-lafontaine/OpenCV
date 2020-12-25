@@ -7,6 +7,9 @@
 constexpr auto IMAGE_PATH = "D:/repos/OpenCV/Tutorial/in_files/cadillac.jpg";
 
 void do_sobel(cv::Mat& src_gray, cv::Mat& dst, int ksize, int scale, int delta);
+void do_sobel_x(cv::Mat& src_gray, cv::Mat& dst, int ksize, int scale, int delta);
+void do_sobel_y(cv::Mat& src_gray, cv::Mat& dst, int ksize, int scale, int delta);
+
 void do_scharr(cv::Mat& src_gray, cv::Mat& dst, int scale, int delta);
 
 
@@ -102,6 +105,33 @@ void do_sobel(cv::Mat& src_gray, cv::Mat& dst, int ksize, int scale, int delta)
     cv::convertScaleAbs(grad_y, abs_grad_y);
 
     cv::addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, dst);
+}
+
+
+void do_sobel_x(cv::Mat& src_gray, cv::Mat& dst, int ksize, int scale, int delta)
+{
+    cv::Mat grad_x;
+
+    int ddepth = CV_16S;
+
+    cv::Sobel(src_gray, grad_x, ddepth, 1, 0, ksize, scale, delta, cv::BORDER_DEFAULT);
+
+    // converting back to CV_8U
+    cv::convertScaleAbs(grad_x, dst);
+}
+
+
+void do_sobel_y(cv::Mat& src_gray, cv::Mat& dst, int ksize, int scale, int delta)
+{
+    cv::Mat grad_y;
+    cv::Mat abs_grad_y;
+
+    int ddepth = CV_16S;
+
+    cv::Sobel(src_gray, grad_y, ddepth, 0, 1, ksize, scale, delta, cv::BORDER_DEFAULT);
+
+    // converting back to CV_8U
+    cv::convertScaleAbs(grad_y, dst);
 }
 
 
