@@ -54,5 +54,9 @@ int main()
 
 	//threshold_inrange();
 
-	filter2d();
+	//filter2d();
+
+	//border();
+
+	sobel_scharr();
 }

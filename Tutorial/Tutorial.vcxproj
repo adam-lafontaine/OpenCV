@@ -143,6 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="12_border.cpp" />
+    <ClCompile Include="13_sobel_scharr.cpp" />
     <ClCompile Include="src\core\01_display_image.cpp" />
     <ClCompile Include="src\core\02_lookup_table.cpp" />
     <ClCompile Include="src\core\03_mask_operations.cpp" />

@@ -39,3 +39,7 @@ void threashold();
 void threshold_inrange();
 
 void filter2d();
+
+void border();
+
+void sobel_scharr();
