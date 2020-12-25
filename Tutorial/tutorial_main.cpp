@@ -52,5 +52,7 @@ int main()
 
 	//threashold();
 
-	threshold_inrange();
+	//threshold_inrange();
+
+	filter2d();
 }

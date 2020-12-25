@@ -161,7 +161,8 @@
     <ClCompile Include="src\imgproc\07_extract_h_v_lines.cpp" />
     <ClCompile Include="src\imgproc\08_zoom_in_out.cpp" />
     <ClCompile Include="src\imgproc\09_threashold.cpp" />
-    <ClCompile Include="src\imgproc\threshold_inrange.cpp" />
+    <ClCompile Include="src\imgproc\10_threshold_inrange.cpp" />
+    <ClCompile Include="src\imgproc\11_filter2d.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>

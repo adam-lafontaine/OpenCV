@@ -37,3 +37,5 @@ void zoom_in_out();
 void threashold();
 
 void threshold_inrange();
+
+void filter2d();

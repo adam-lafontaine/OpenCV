@@ -72,12 +72,14 @@ void threshold_inrange()
 
     cv::Mat frame, frame_HSV, frame_threshold;
 
-    while (true) {
+    while (true) 
+    {
         cap >> frame;
         if (frame.empty())
         {
             break;
         }
+
         // Convert from BGR to HSV colorspace
         cv::cvtColor(frame, frame_HSV, cv::COLOR_BGR2HSV);
 
