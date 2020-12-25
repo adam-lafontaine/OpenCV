@@ -2,6 +2,8 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
+#include "../utils/video_test.hpp"
+
 #include <iostream>
 
 constexpr auto IMAGE_PATH = "D:/repos/OpenCV/Tutorial/in_files/cadillac.jpg";
@@ -87,6 +89,29 @@ void sobel_scharr()
             break;
         }
     }
+}
+
+
+void sobel_video()
+{
+    int ksize = 3;
+    int scale = 2;
+    int delta = 0;
+
+    auto const sobel_func = [&](cv::Mat& src, cv::Mat& dst)
+    { 
+        cv::Mat src_blur, src_gray;
+
+        // Remove noise by blurring with a Gaussian filter ( kernel size = 3 )
+        cv::GaussianBlur(src, src_blur, cv::Size(3, 3), 0, 0, cv::BORDER_DEFAULT);
+
+        // Convert the image to grayscale
+        cv::cvtColor(src_blur, src_gray, cv::COLOR_BGR2GRAY);
+
+        do_sobel(src_gray, dst, ksize, scale, delta); 
+    };
+
+    video_test(sobel_func);
 }
 
 

@@ -43,3 +43,5 @@ void filter2d();
 void border();
 
 void sobel_scharr();
+
+void sobel_video();

@@ -58,5 +58,7 @@ int main()
 
 	//border();
 
-	sobel_scharr();
+	//sobel_scharr();
+
+	sobel_video();
 }

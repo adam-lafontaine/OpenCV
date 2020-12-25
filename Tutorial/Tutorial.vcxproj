@@ -172,6 +172,7 @@
     <ClInclude Include="..\utils\index_range.hpp" />
     <ClInclude Include="..\utils\reduced_lookup.hpp" />
     <ClInclude Include="..\utils\transform_pixels.hpp" />
+    <ClInclude Include="..\utils\video_test.hpp" />
     <ClInclude Include="..\utils\win32_leak_check.h" />
     <ClInclude Include="src\tutorial.hpp" />
   </ItemGroup>
