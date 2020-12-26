@@ -6,7 +6,7 @@
 #include <functional>
 
 
-void video_test(std::function<void(cv::Mat&, cv::Mat&)> const& func)
+inline void video_test(std::function<void(cv::Mat&, cv::Mat&)> const& func)
 {
 	auto const quit = [](auto c) { return c == 'q' || c == 27; };
 

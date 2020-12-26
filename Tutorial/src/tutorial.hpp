@@ -45,3 +45,7 @@ void border();
 void sobel_scharr();
 
 void sobel_video();
+
+void laplacian();
+
+void laplacian_video();

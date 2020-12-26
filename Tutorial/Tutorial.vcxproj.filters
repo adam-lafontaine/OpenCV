@@ -87,10 +87,13 @@
     <ClCompile Include="src\imgproc\11_filter2d.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
-    <ClCompile Include="12_border.cpp">
+    <ClCompile Include="src\imgproc\14_laplacian.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
-    <ClCompile Include="13_sobel_scharr.cpp">
+    <ClCompile Include="src\imgproc\12_border.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\13_sobel_scharr.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
   </ItemGroup>
