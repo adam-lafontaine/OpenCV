@@ -244,6 +244,39 @@ namespace utils
 	}
 
 
+	inline void for_each_pixel_par_row(cv::Mat const& img, std::function<void(uchar)> const& func)
+	{
+		IndexRange x_range(img.cols);
+		IndexRange y_range(img.rows);
+
+		auto const row_func = [&](int y)
+		{
+			auto ptr = img.ptr<uchar>(y);
+
+			auto const x_func = [&](auto x) { func(ptr[x]); };
+
+			std::for_each(x_range.begin(), x_range.end(), x_func);
+		};
+
+		std::for_each(std::execution::par, y_range.begin(), y_range.end(), row_func);
+	}
+
+
+	inline void for_each_pixel_par_row(cv::Mat const& img, std::function<void(size_t x, size_t y)> const& func)
+	{
+		IndexRange x_range(img.cols);
+		IndexRange y_range(img.rows);
+
+		auto const row_func = [&](int y)
+		{
+			auto const x_func = [&](auto x) { func(x, y); };
+
+			std::for_each(x_range.begin(), x_range.end(), x_func);
+		};
+
+		std::for_each(std::execution::par, y_range.begin(), y_range.end(), row_func);
+	}
+
 
 
 
@@ -306,68 +339,22 @@ namespace utils
 		assert(src.type() == CV_8U);
 		assert(src.type() == dst.type());
 
-		// 12 sec
-		/*size_t id_size = static_cast<size_t>(src.rows) * static_cast<size_t>(dst.cols);
-
-		std::vector<int> ids(id_size);
-		std::iota(ids.begin(), ids.end(), 0);
-
-		auto const get_y = [&](int id) { return id / src.cols; };
-		auto const get_x = [&](int id) { return id % src.cols; };
-
-		auto const id_func = [&](int id)
-		{
-			auto const y = get_y(id);
-			auto const x = get_x(id);
-			auto src_ptr = src.ptr<uchar>(y);
-			auto dst_ptr = dst.ptr<uchar>(y);
-
-			dst_ptr[x] = table[src_ptr[x]];
-		};
-
-		std::for_each(std::execution::par, ids.begin(), ids.end(), id_func);*/
-
-		// 14 sec
-		/*auto const xy_func = [&](auto x, auto y)
-		{
-			auto src_ptr = src.ptr<uchar>(y);
-			auto dst_ptr = dst.ptr<uchar>(y);
-
-			dst_ptr[x] = table[src_ptr[x]];
-		};
-
-		for_each_pixel_par_stl(src, xy_func);*/
+		IndexRange x_range(src.cols);
 
 		auto const row_func = [&](int y)
 		{
 			auto src_ptr = src.ptr<uchar>(y);
 			auto dst_ptr = dst.ptr<uchar>(y);
 
-			/*auto const x_func = [&](int x) { dst_ptr[x] = table[src_ptr[x]]; };
-			IndexRange x_range(src.cols - 1);
-			std::for_each(std::execution::par, x_range.begin(), x_range.end(), x_func);*/
-
-			for (auto x = 0; x < src.cols; ++x)
-			{
-				//dst.at<uchar>(y, x) = table[dst.at<uchar>(y, x)];
-				dst_ptr[x] = table[src_ptr[x]];
-			}
+			auto const x_func = [&](int x) { dst_ptr[x] = table[src_ptr[x]]; };
+			
+			std::for_each(x_range.begin(), x_range.end(), x_func);
 		};
 
-		// 126 ms
-		//std::vector<int> rows(src.rows);
-		//std::iota(rows.begin(), rows.end(), 0);
-
 
 		// 126 ms
-		IndexRange rows(src.rows - 1);
-
-
+		IndexRange rows(src.rows);
 		std::for_each(std::execution::par, rows.begin(), rows.end(), row_func);
-
-
-
-
 	}
 
 
@@ -388,6 +375,8 @@ namespace utils
 
 		for_each_pixel_par_itr(src, xy_func);
 	}
+
+
 
 
 	/*inline void LUT_cv_itr(cv::Mat const& src, std::array<uint8_t, 256> table, cv::Mat& dst)

@@ -18,7 +18,7 @@ int main()
 
 	//display_image();
 
-	//lookup_table();
+	lookup_table();
 
 	//mask_operations();
 
@@ -60,5 +60,5 @@ int main()
 
 	//sobel_scharr();
 
-	sobel_video();
+	//sobel_video();
 }

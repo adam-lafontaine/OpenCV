@@ -97,10 +97,12 @@ void sobel_video()
     int ksize = 3;
     int scale = 2;
     int delta = 0;
+    int max_binary = 255;
+    int threshold_value = 75;
 
     auto const sobel_func = [&](cv::Mat& src, cv::Mat& dst)
     { 
-        cv::Mat src_blur, src_gray;
+        cv::Mat src_blur, src_gray, src_sobel, src_thresh;
 
         // Remove noise by blurring with a Gaussian filter ( kernel size = 3 )
         cv::GaussianBlur(src, src_blur, cv::Size(3, 3), 0, 0, cv::BORDER_DEFAULT);
@@ -108,7 +110,9 @@ void sobel_video()
         // Convert the image to grayscale
         cv::cvtColor(src_blur, src_gray, cv::COLOR_BGR2GRAY);
 
-        do_sobel(src_gray, dst, ksize, scale, delta); 
+        do_sobel(src_gray, src_sobel, ksize, scale, delta);
+
+        cv::threshold(src_sobel, dst, threshold_value, max_binary, cv::THRESH_TOZERO);
     };
 
     video_test(sobel_func);

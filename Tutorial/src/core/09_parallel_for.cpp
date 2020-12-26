@@ -139,7 +139,7 @@ void for_each_pixel_par_itr2d(cv::Mat& img, float x1, float y1, float scaleX, fl
     auto const func = [&](auto x, auto y)
     {
         float x0 = x / scaleX + x1;
-        float y0 = y / scaleY + y1;
+        float y0 = y / scaleY + y1;        
 
         img.ptr<uchar>(y)[x] = do_mandelbrot(img, x0, y0);
     };
