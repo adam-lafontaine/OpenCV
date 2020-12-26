@@ -49,3 +49,7 @@ void sobel_video();
 void laplacian();
 
 void laplacian_video();
+
+void canny();
+
+void canny_video();

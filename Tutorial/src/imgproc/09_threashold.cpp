@@ -18,7 +18,7 @@ namespace threashold_09
     const char* trackbar_type = "Type: \n 0: Binary \n 1: Binary Inverted \n 2: Truncate \n 3: To Zero \n 4: To Zero Inverted";
     const char* trackbar_value = "Value";
 
-    constexpr auto IMAGE_PATH = "D:/repos/OpenCV/Tutorial/in_files/tesla.jpg";
+    constexpr auto IMAGE_PATH = "D:/repos/temp/weld.BMP"; // "D:/repos/OpenCV/Tutorial/in_files/tesla.jpg";
 
 
     static void Threshold_Demo(int, void*)

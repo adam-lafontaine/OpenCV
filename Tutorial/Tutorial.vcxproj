@@ -166,6 +166,7 @@
     <ClCompile Include="src\imgproc\12_border.cpp" />
     <ClCompile Include="src\imgproc\13_sobel_scharr.cpp" />
     <ClCompile Include="src\imgproc\14_laplacian.cpp" />
+    <ClCompile Include="src\imgproc\15_canny.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>

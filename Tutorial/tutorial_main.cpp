@@ -60,9 +60,13 @@ int main()
 
 	//sobel_scharr();
 
-	sobel_video();
+	//sobel_video();
 
 	//laplacian();
 
 	//laplacian_video();
+
+	canny();
+
+	//canny_video();
 }
