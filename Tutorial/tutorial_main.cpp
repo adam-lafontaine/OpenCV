@@ -66,7 +66,11 @@ int main()
 
 	//laplacian_video();
 
-	canny();
+	//canny();
 
 	//canny_video();
+
+	//hough_line();
+
+	hough_circle();
 }

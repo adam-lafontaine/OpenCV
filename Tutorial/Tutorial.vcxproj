@@ -167,6 +167,8 @@
     <ClCompile Include="src\imgproc\13_sobel_scharr.cpp" />
     <ClCompile Include="src\imgproc\14_laplacian.cpp" />
     <ClCompile Include="src\imgproc\15_canny.cpp" />
+    <ClCompile Include="src\imgproc\16_hough_line.cpp" />
+    <ClCompile Include="src\imgproc\17_hough_circle.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>

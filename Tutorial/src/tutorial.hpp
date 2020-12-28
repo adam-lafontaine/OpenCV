@@ -53,3 +53,7 @@ void laplacian_video();
 void canny();
 
 void canny_video();
+
+void hough_line();
+
+void hough_circle();
