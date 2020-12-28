@@ -170,6 +170,7 @@
     <ClCompile Include="src\imgproc\16_hough_line.cpp" />
     <ClCompile Include="src\imgproc\17_hough_circle.cpp" />
     <ClCompile Include="src\imgproc\18_remap.cpp" />
+    <ClCompile Include="src\imgproc\19_affine_transform.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -59,3 +59,5 @@ void hough_line();
 void hough_circle();
 
 void remap();
+
+void affine_transform();

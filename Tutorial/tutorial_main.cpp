@@ -74,5 +74,7 @@ int main()
 
 	//hough_circle();
 
-	remap();
+	//remap();
+
+	affine_transform();
 }
