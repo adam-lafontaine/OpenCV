@@ -169,6 +169,7 @@
     <ClCompile Include="src\imgproc\15_canny.cpp" />
     <ClCompile Include="src\imgproc\16_hough_line.cpp" />
     <ClCompile Include="src\imgproc\17_hough_circle.cpp" />
+    <ClCompile Include="src\imgproc\18_remap.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>

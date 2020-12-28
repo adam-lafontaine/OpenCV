@@ -72,5 +72,7 @@ int main()
 
 	//hough_line();
 
-	hough_circle();
+	//hough_circle();
+
+	remap();
 }

@@ -57,3 +57,5 @@ void canny_video();
 void hough_line();
 
 void hough_circle();
+
+void remap();

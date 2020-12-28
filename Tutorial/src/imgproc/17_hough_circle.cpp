@@ -33,10 +33,10 @@ void hough_circle()
         cv::Vec3i c = circles[i];
         cv::Point center = cv::Point(c[0], c[1]);
         // circle center
-        circle(src, center, 1, cv::Scalar(0, 100, 100), 3, cv::LINE_AA);
+        cv::circle(src, center, 1, cv::Scalar(0, 100, 100), 3, cv::LINE_AA);
         // circle outline
         int radius = c[2];
-        circle(src, center, radius, cv::Scalar(255, 0, 255), 3, cv::LINE_AA);
+        cv::circle(src, center, radius, cv::Scalar(255, 0, 255), 3, cv::LINE_AA);
     }
 
     cv::imshow("detected circles", src);
