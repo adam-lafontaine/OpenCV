@@ -111,6 +111,12 @@
     <ClCompile Include="src\imgproc\19_affine_transform.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
+    <ClCompile Include="src\imgproc\20_equalize_hist.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\21_calc_hist.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\tutorial.hpp">

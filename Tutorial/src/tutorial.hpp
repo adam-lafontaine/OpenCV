@@ -61,3 +61,7 @@ void hough_circle();
 void remap();
 
 void affine_transform();
+
+void equalize_hist();
+
+void calc_hist();

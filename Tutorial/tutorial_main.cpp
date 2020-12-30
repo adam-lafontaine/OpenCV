@@ -76,5 +76,9 @@ int main()
 
 	//remap();
 
-	affine_transform();
+	//affine_transform();
+
+	//equalize_hist();
+
+	calc_hist();
 }

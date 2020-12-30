@@ -30,7 +30,9 @@ void remap()
     {
         update_map(ind, map_x, map_y);
         cv::remap(src, dst, map_x, map_y, cv::INTER_LINEAR, cv::BORDER_CONSTANT, cv::Scalar(0, 0, 0));
+
         cv::imshow(remap_window, dst);
+
         char c = (char)cv::waitKey(1000);
         if (c == 27)
         {
@@ -60,21 +62,25 @@ void update_map(int ind, cv::Mat& map_x, cv::Mat& map_y)
                     map_y.at<float>(i, j) = 0;
                 }
                 break;
+
             case 1:
                 map_x.at<float>(i, j) = (float)j;
                 map_y.at<float>(i, j) = (float)(map_x.rows - i);
                 break;
+
             case 2:
                 map_x.at<float>(i, j) = (float)(map_x.cols - j);
                 map_y.at<float>(i, j) = (float)i;
                 break;
+
             case 3:
                 map_x.at<float>(i, j) = (float)(map_x.cols - j);
                 map_y.at<float>(i, j) = (float)(map_x.rows - i);
                 break;
+
             default:
                 break;
-            } // end of switch
+            }
         }
     }
     

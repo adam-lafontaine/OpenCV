@@ -171,6 +171,8 @@
     <ClCompile Include="src\imgproc\17_hough_circle.cpp" />
     <ClCompile Include="src\imgproc\18_remap.cpp" />
     <ClCompile Include="src\imgproc\19_affine_transform.cpp" />
+    <ClCompile Include="src\imgproc\20_equalize_hist.cpp" />
+    <ClCompile Include="src\imgproc\21_calc_hist.cpp" />
     <ClCompile Include="tutorial_main.cpp" />
   </ItemGroup>
   <ItemGroup>
