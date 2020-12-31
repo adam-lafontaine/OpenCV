@@ -65,3 +65,11 @@ void affine_transform();
 void equalize_hist();
 
 void calc_hist();
+
+void compare_hist();
+
+void back_projection();
+
+void template_matching();
+
+void contours();

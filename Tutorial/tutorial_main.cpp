@@ -80,5 +80,13 @@ int main()
 
 	//equalize_hist();
 
-	calc_hist();
+	//calc_hist();
+
+	//compare_hist();
+
+	//back_projection();
+
+	//template_matching();
+
+	contours();
 }

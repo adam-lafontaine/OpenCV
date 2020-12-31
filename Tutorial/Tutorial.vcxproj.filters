@@ -117,6 +117,18 @@
     <ClCompile Include="src\imgproc\21_calc_hist.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
+    <ClCompile Include="src\imgproc\22_compare_hist.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\23_back_projection.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\24_template_matching.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\25_contours.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\tutorial.hpp">
