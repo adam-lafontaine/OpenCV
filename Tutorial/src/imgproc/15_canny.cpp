@@ -62,8 +62,8 @@ void canny()
 
 void canny_video()
 {
-    cv::Mat src, src_gray;
-    cv::Mat dst, detected_edges;
+    cv::Mat src_gray;
+    cv::Mat detected_edges;
     int threshold = 30;
     const int ratio = 3;
     const int kernel_size = 3;
@@ -79,5 +79,5 @@ void canny_video()
         src_gray.copyTo(dst, detected_edges);
     };
 
-    video_test(canny_func);
+    video_test::process_capture(canny_func);
 }

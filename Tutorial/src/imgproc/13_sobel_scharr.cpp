@@ -115,7 +115,7 @@ void sobel_video()
         cv::threshold(src_sobel, dst, threshold_value, max_binary, cv::THRESH_BINARY);
     };
 
-    video_test(sobel_func);
+    video_test::process_capture(sobel_func);
 }
 
 

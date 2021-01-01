@@ -88,5 +88,9 @@ int main()
 
 	//template_matching();
 
-	contours();
+	//contours();
+
+	contour_video();
+
+	//convex_hull();
 }

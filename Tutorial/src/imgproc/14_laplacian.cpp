@@ -69,5 +69,5 @@ void laplacian_video()
         cv::threshold(mat_gray, dst, threshold_value, max_binary, cv::THRESH_BINARY);
     };
 
-    video_test(laplacian_func);
+    video_test::process_capture(laplacian_func);
 }

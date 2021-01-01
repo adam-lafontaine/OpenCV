@@ -6,32 +6,36 @@
 #include <functional>
 
 
-inline void video_test(std::function<void(cv::Mat&, cv::Mat&)> const& func)
+namespace video_test
 {
-	auto const quit = [](auto c) { return c == 'q' || c == 27; };
-
-	cv::VideoCapture cap(0);
-
-	cv::Mat src, dst;
-
-	for (;;)
+	inline void process_capture(std::function<void(cv::Mat&, cv::Mat&)> const& func)
 	{
-		cap >> src;
-		if (src.empty())
+		auto const quit = [](auto c) { return c == 'q' || c == 27; };
+
+		cv::VideoCapture cap(0);
+
+		cv::Mat src, dst;
+
+		for (;;)
 		{
-			break;
+			cap >> src;
+			if (src.empty())
+			{
+				break;
+			}
+
+			func(src, dst);
+
+			cv::imshow("Source", src);
+			cv::imshow("Result", dst);
+
+			if (quit(cv::waitKey(15)))
+			{
+				break;
+			}
 		}
 
-		func(src, dst);
-
-		cv::imshow("Source", src);
-		cv::imshow("Result", dst);
-
-		if (quit(cv::waitKey(30)))
-		{
-			break;
-		}
 	}
-
-	
 }
+
+

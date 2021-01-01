@@ -73,3 +73,7 @@ void back_projection();
 void template_matching();
 
 void contours();
+
+void contour_video();
+
+void convex_hull();
