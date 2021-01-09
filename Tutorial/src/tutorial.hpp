@@ -77,3 +77,21 @@ void contours();
 void contour_video();
 
 void convex_hull();
+
+void bounding();
+
+void bounding_rotated();
+
+void moments();
+
+void point_polygon();
+
+void distance_transform();
+
+void deblur_filter();
+
+void motion_deblur();
+
+void anisotropic();
+
+void periodic_noise_filter();

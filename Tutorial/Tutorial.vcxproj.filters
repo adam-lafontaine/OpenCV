@@ -132,6 +132,33 @@
     <ClCompile Include="src\imgproc\26_convex_hull.cpp">
       <Filter>Source Files\imgproc</Filter>
     </ClCompile>
+    <ClCompile Include="src\imgproc\27_bounding.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\28_bounding_rotated.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\29_moments.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\30_point_polygon.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\31_distance_transform.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\32_deblur_filter.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\33_motion_deblur.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\34_anisotropic.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgproc\35_periodic_noise_filter.cpp">
+      <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\tutorial.hpp">

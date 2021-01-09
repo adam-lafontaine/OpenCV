@@ -90,7 +90,25 @@ int main()
 
 	//contours();
 
-	contour_video();
+	//contour_video();
 
 	//convex_hull();
+
+	//bounding();
+
+	//bounding_rotated();
+
+	//moments();
+
+	//point_polygon();
+
+	//distance_transform();
+
+	//deblur_filter();
+
+	//motion_deblur();
+
+	//anisotropic();
+
+	periodic_noise_filter();
 }

@@ -16,6 +16,9 @@ namespace utils
 	class TypeMap
 	{
 	private:
+
+		using wide_t = long double;
+
 		In_t m_in_min = std::numeric_limits<In_t>::min();
 		In_t m_in_max = std::numeric_limits<In_t>::max();
 		Out_t m_out_min = std::numeric_limits<Out_t>::min();
@@ -34,8 +37,8 @@ namespace utils
 
 		Out_t get(In_t const& val)
 		{
-			auto const min = static_cast<long double>(m_in_min);
-			long double const ratio = (val - min) / (m_in_max - min);
+			auto const min = static_cast<wide_t>(m_in_min);
+			wide_t const ratio = (val - min) / (m_in_max - min);
 
 			return m_out_min + static_cast<Out_t>((m_out_max - m_out_min) * ratio);
 		}
