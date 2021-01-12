@@ -22,6 +22,9 @@
     <Filter Include="Source Files\imgproc">
       <UniqueIdentifier>{6e028c40-e327-4783-baba-8d95a64cc45e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\app_utils">
+      <UniqueIdentifier>{454906e3-50b5-4bd1-ae3a-230158061a25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="tutorial_main.cpp">
@@ -158,6 +161,12 @@
     </ClCompile>
     <ClCompile Include="src\imgproc\35_periodic_noise_filter.cpp">
       <Filter>Source Files\imgproc</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app_utils\01_trackbar.cpp">
+      <Filter>Source Files\app_utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app_utils\02_gdal.cpp">
+      <Filter>Source Files\app_utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

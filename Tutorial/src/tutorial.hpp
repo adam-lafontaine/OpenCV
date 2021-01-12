@@ -95,3 +95,7 @@ void motion_deblur();
 void anisotropic();
 
 void periodic_noise_filter();
+
+void trackbar();
+
+void gdal();

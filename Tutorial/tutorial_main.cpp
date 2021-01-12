@@ -110,5 +110,9 @@ int main()
 
 	//anisotropic();
 
-	periodic_noise_filter();
+	//periodic_noise_filter();
+
+	//trackbar();
+
+	gdal();
 }
