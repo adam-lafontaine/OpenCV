@@ -168,6 +168,9 @@
     <ClCompile Include="src\app_utils\02_gdal.cpp">
       <Filter>Source Files\app_utils</Filter>
     </ClCompile>
+    <ClCompile Include="src\app_utils\03_video.cpp">
+      <Filter>Source Files\app_utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\tutorial.hpp">

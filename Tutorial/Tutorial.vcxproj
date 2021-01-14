@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="src\app_utils\01_trackbar.cpp" />
     <ClCompile Include="src\app_utils\02_gdal.cpp" />
+    <ClCompile Include="src\app_utils\03_video.cpp" />
     <ClCompile Include="src\core\01_display_image.cpp" />
     <ClCompile Include="src\core\02_lookup_table.cpp" />
     <ClCompile Include="src\core\03_mask_operations.cpp" />

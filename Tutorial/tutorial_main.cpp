@@ -114,5 +114,7 @@ int main()
 
 	//trackbar();
 
-	gdal();
+	//gdal();
+
+	video();
 }
