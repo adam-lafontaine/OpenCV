@@ -1,11 +1,11 @@
-#include "./tutorial.hpp"
-#include "../../utils/reduced_lookup.hpp"
-#include "../../utils/for_each_pixel.hpp"
-#include "../../utils/stopwatch.hpp"
+#include "../tutorial.hpp"
+#include "../../../utils/reduced_lookup.hpp"
+#include "../../../utils/for_each_pixel.hpp"
+#include "../../../utils/stopwatch.hpp"
 
 #include <opencv2/core.hpp>
 #include <opencv2/core/utility.hpp>
-#include "opencv2/imgcodecs.hpp"
+#include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
 #include <iostream>
@@ -56,6 +56,18 @@ void lookup_table()
 
     time = sw.get_time_milli();
     std::cout << "LUT_stl time = " << time << " ms\n";
+
+    sw.start();
+
+    for (auto i = 0; i < n_times; ++i)
+    {
+        utils::LUT_itr(src, table, dst_stl); // 125 ms
+    }
+
+    time = sw.get_time_milli();
+    std::cout << "LUT_itr time = " << time << " ms\n";
+
+
 
     /*cv::namedWindow("Input", cv::WINDOW_AUTOSIZE);
     cv::namedWindow("LUT", cv::WINDOW_AUTOSIZE);

@@ -1,4 +1,4 @@
-#include "./tutorial.hpp"
+#include "../tutorial.hpp"
 
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
