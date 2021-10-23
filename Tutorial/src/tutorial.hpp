@@ -1,5 +1,7 @@
 #pragma once
 
+void memory_leak();
+
 void display_image();
 
 void lookup_table();

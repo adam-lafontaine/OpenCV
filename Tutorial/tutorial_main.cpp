@@ -14,7 +14,7 @@ int main()
 	_CrtSetDbgFlag(dbgFlags);
 #endif
 
-
+	memory_leak();
 
 	//display_image();
 
